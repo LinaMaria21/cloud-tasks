@@ -1,33 +1,47 @@
 # Cloud Tasks Architecture
-# Notes to explain how forntend and backend works
 
-Backend Flow
+## Backend Flow
 
-text
-Developer: developer write code and push it to Github
-   ↓
+Developer
+↓
 GitHub
-   ↓
-GitHub Actions: Github actions can automatically build and deploy the application
-   ↓
-Docker: Docker packages the Fast API aaplication into a container
-   ↓
-Amazon ECR: ECR stores the docker image
-   ↓
-Amazon ECS / Fargate: ECS/Fargate runs the docker container
-   ↓
-FastAPI: the FastAPI application runs inside that container
-   ↓
-PostgreSQL / RDS: the API saves and reads task data from the postgreSQL database
+↓
+GitHub Actions
+↓
+Docker
+↓
+Amazon ECR
+↓
+Amazon ECS / Fargate
+↓
+FastAPI
+↓
+PostgreSQL / RDS
 
-Frontend Flow
+## Frontend Flow
 
 User
- ↓
+↓
 CloudFront
- ↓
+↓
 Amazon S3
- ↓
+↓
 React + TypeScript
 
-User opens the website, Cloudfront delivers the website, s3 stores the website files and React and Typescript is what creates the website the user sees.
+## How It Works
+
+The developer writes code and pushes it to GitHub.
+
+GitHub Actions automatically builds and deploys the application.
+
+Docker packages the FastAPI application into a container.
+
+Amazon ECR stores the Docker image.
+
+Amazon ECS / Fargate runs the Docker container.
+
+FastAPI handles API requests and communicates with PostgreSQL.
+
+CloudFront delivers the frontend to users.
+
+Amazon S3 stores the React website files.
